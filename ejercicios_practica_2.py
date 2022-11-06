@@ -14,7 +14,6 @@ import csv
 
 def ej3():
     print('Ejercicio de archivos CSV 1º')
-    archivo = 'stock.csv'
     
     # Realice un programa que abra el archivo 'stock.csv'
     # en modo lectura y cuente el stock total de tornillos
@@ -27,7 +26,21 @@ def ej3():
     # para cumplir con el enunciado del ejercicio
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
-    
+    with open('stock.csv', 'r') as csvfile:
+        data = list(csv.DictReader(csvfile))
+
+    stock_tornillos = 0
+
+    for i in range(len(data)):
+       stock = data[i]
+       for k, v in stock.items():
+            if k == 'tornillos':
+                v = int(v)
+                stock_tornillos = stock_tornillos + v
+
+    print('El stock de tornillos es ', stock_tornillos, 'tornillos')            
+
+                    
 
 
 def ej4():
