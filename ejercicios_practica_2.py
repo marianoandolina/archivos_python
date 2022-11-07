@@ -61,6 +61,28 @@ def ej4():
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
 
+    with open('propiedades.csv', 'r') as csvfile:
+        data = list(csv.DictReader(csvfile))    
+    
+    deptos_2amb = 0
+    deptos_3amb = 0
+
+    for i in range(len(data)):
+        deptos = data[i]
+        for k, v in deptos.items():
+            if k == 'ambientes' and v == '2':
+                v == int(v)
+                deptos_2amb += 1
+            if k == 'ambientes' and v == '3':
+                v == int(v)
+                deptos_3amb += 1
+    
+    print(f'La cantidad de departamentos de 2 ambientes es {deptos_2amb}')
+    print(f'La cantidad de departamentos de 3 ambientes es {deptos_3amb}')
+          
+
+
+
 
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
